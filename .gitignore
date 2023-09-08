@@ -1,4 +1,6 @@
 venv
 **.vscode
 **.ipynb_checkpoints
+**__pycache__
 rascunho_readme.odt
+valor_medicamentos_pre_processamento
