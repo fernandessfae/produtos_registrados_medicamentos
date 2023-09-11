@@ -94,7 +94,7 @@
 
 ### Avaliação dos modelos de machine learning
 
-<div align='justify'>Após a criação dos modelos, seja dividindo os dados para treinamento e teste ou fazendo uma validação cruzada, são necessárias métricas para avaliar o quão bom um modelo de classificação está, antes de disponibilizá-lo para o público. Nesse tópico será uma discussão um pouco mais técnica, então para quem não entende esse assunto, pode ler o próximo <a href=''>tópico</a>.<br/>Continuando, abaixo veremos algumas métricas de avaliação de modelo de machine learning:</div>
+<div align='justify'>Após a criação dos modelos, seja dividindo os dados para treinamento e teste ou fazendo uma validação cruzada, são necessárias métricas para avaliar o quão bom um modelo de classificação está, antes de disponibilizá-lo para o público. Nesse tópico será uma discussão um pouco mais técnica, então para quem não entende esse assunto, pode ler o próximo <a href='https://github.com/fernandessfae/produtos_registrados_medicamentos#deploy'>tópico</a>.<br/>Continuando, abaixo veremos algumas métricas de avaliação de modelo de machine learning:</div>
 
 #### Acurácia
 
