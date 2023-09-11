@@ -1,33 +1,33 @@
 # Análise de dados sobre os registros de medicamentos na ANVISA
 
 ## Sumário
-- [Introdução]()
-- [Análise Geral]()
-    - [Registro medicamentos]()
-    - [Categoria regulatória]()
-    - [Classe terapêutica]()
-    - [Princípio ativo]()
-    - [Empresas detentoras dos registros]()
-- [Resolução do problema]()
-    - [Pré-processamento de dados]()
-    - [Criação dos algoritmos de machine learning]()
-    - [Avaliação dos modelos de machine learning]()
-        - [Acurácia]()
-        - [Matriz de confusão]()
-        - [Precisão]()
-        - [Recall]()
-        - [F1-Score]()
-    - [Deploy]()
-- [Conclusão]()
+- [Introdução](https://github.com/fernandessfae/produtos_registrados_medicamentos#introdu%C3%A7%C3%A3o)
+- [Análise Geral](https://github.com/fernandessfae/produtos_registrados_medicamentos#an%C3%A1lise-geral)
+    - [Registro medicamentos](https://github.com/fernandessfae/produtos_registrados_medicamentos#registro-medicamentos)
+    - [Categoria regulatória](https://github.com/fernandessfae/produtos_registrados_medicamentos#categoria-regulat%C3%B3ria)
+    - [Classe terapêutica](https://github.com/fernandessfae/produtos_registrados_medicamentos#classe-terap%C3%AAutica)
+    - [Princípio ativo](https://github.com/fernandessfae/produtos_registrados_medicamentos#princ%C3%ADpio-ativo)
+    - [Empresas detentoras dos registros](https://github.com/fernandessfae/produtos_registrados_medicamentos#empresas-detentoras-dos-registros)
+- [Resolução do problema](https://github.com/fernandessfae/produtos_registrados_medicamentos#resolu%C3%A7%C3%A3o-do-problema)
+    - [Pré-processamento de dados](https://github.com/fernandessfae/produtos_registrados_medicamentos#pr%C3%A9-processamento-de-dados)
+    - [Criação dos algoritmos de machine learning](https://github.com/fernandessfae/produtos_registrados_medicamentos#cria%C3%A7%C3%A3o-dos-algoritmos-de-machine-learning)
+    - [Avaliação dos modelos de machine learning](https://github.com/fernandessfae/produtos_registrados_medicamentos#avalia%C3%A7%C3%A3o-dos-modelos-de-machine-learning)
+        - [Acurácia](https://github.com/fernandessfae/produtos_registrados_medicamentos#acur%C3%A1cia)
+        - [Matriz de confusão](https://github.com/fernandessfae/produtos_registrados_medicamentos#matriz-de-confus%C3%A3o)
+        - [Precisão](https://github.com/fernandessfae/produtos_registrados_medicamentos#precis%C3%A3o)
+        - [Recall](https://github.com/fernandessfae/produtos_registrados_medicamentos#recall)
+        - [F1-Score](https://github.com/fernandessfae/produtos_registrados_medicamentos#f1-score)
+    - [Deploy](https://github.com/fernandessfae/produtos_registrados_medicamentos#deploy)
+- [Conclusão](https://github.com/fernandessfae/produtos_registrados_medicamentos#conclus%C3%A3o)
 
 ## Introdução
 
-<div align="justify">A criação de medicamentos não é algo relativamente novo na sociedade emgeral, cujo objetivo é encontrar a cura de alguma doença ou tratamento para amenizar os efeitos da mesma. No Brasil, todo medicamento criado precisa ser registrado na agência de vigilância sanitária (ANVISA), orgão regulador na área da saúde, para depois receber autorização para comercialização, industrialização,venda e consumo, obviamente depois da análise da documentação que comprove a eficiência dele, conforme escrito no artigo 12 da lei 6.360/1976. A finalidade do registro é para garantir que um novo medicamento tenha impacto positivo na saúde da população brasileira. Para maiores informações sobre registro de medicamentos, basta acessar o site da ANVISA clicando <a href='http://antigo.anvisa.gov.br/resultado-de-busca?p_p_id=101&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_101_struts_action=%2Fasset_publisher%2Fview_content&_101_assetEntryId=5062720&_101_type=content&_101_groupId=219201&_101_urlTitle=registro-de-novos-medicamentos-saiba-o-que-e-preciso&inheritRedirect=true'>aqui</a>.
+<div align="justify">A criação de medicamentos não é algo relativamente novo na sociedade em geral, cujo objetivo é encontrar a cura de alguma doença ou tratamento para amenizar os efeitos da mesma. No Brasil, todo medicamento criado precisa ser registrado na agência de vigilância sanitária (ANVISA), orgão regulador na área da saúde, para depois receber autorização para comercialização, industrialização,venda e consumo, obviamente depois da análise da documentação que comprove a eficiência dele, conforme escrito no artigo 12 da lei 6.360/1976. A finalidade do registro é para garantir que um novo medicamento tenha impacto positivo na saúde da população brasileira. Para maiores informações sobre registro de medicamentos, basta acessar o site da ANVISA clicando <a href='http://antigo.anvisa.gov.br/resultado-de-busca?p_p_id=101&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_101_struts_action=%2Fasset_publisher%2Fview_content&_101_assetEntryId=5062720&_101_type=content&_101_groupId=219201&_101_urlTitle=registro-de-novos-medicamentos-saiba-o-que-e-preciso&inheritRedirect=true'>aqui</a>.
 </div><br/>
 
 ## Análise Geral
 
-<div align='justify'>Após uma breve explicação sobre o registro de medicamentos na ANVISA, agora cabe explicar sobre os dados dos registros desses medicamentos. Esses dados estão disponíveis no site dos dados abertos do governo federal, clicando <a href='https://dados.gov.br/dados/conjuntos-dados/medicamentos-registrados-no-brasil'>aqui</a> basta ir na aba 'recursos' para encontrá-los. Caso o link esteja indisponível para acesso, deixarei disponível o acesso para <a href='https://github.com/fernandessfae/produtos_registrados_medicamentos/blob/master/DADOS_ABERTOS_MEDICAMENTOS.csv'>base de dados</a> e ao <a href='https://github.com/fernandessfae/produtos_registrados_medicamentos/blob/master/Documentacao_e_Dicionario_de_Dados_Registros_Validos_Medicamento_V1.pdf'>dicionário de dados</a>, estes que estarão presentes nesse repositório.</div>
+<div align='justify'>Após uma breve explicação sobre o registro de medicamentos na ANVISA, agora cabe explicar sobre os dados dos registros desses medicamentos. Esses dados estão disponíveis no site dos dados abertos do governo federal, clicando <a href='https://dados.gov.br/dados/conjuntos-dados/medicamentos-registrados-no-brasil'>aqui</a> basta ir na aba 'recursos' para encontrá-los. Caso o link esteja indisponível para acesso, deixarei disponível o acesso para <a href='https://github.com/fernandessfae/produtos_registrados_medicamentos/blob/master/DADOS_ABERTOS_MEDICAMENTOS.csv'>base de dados</a> e ao <a href='https://github.com/fernandessfae/produtos_registrados_medicamentos/blob/master/Documentacao_e_Dicionario_de_Dados_Registros_Validos_Medicamento_V1.pdf'>dicionário de dados</a>, estes que estarão presentes neste repositório.</div>
 <div align='justify'>Falando especificamente sobre os dados, são cerca de 30.725 registros de medicamentos até o momento, divididos em 11 colunas com informações específicas do medicamento em cada coluna. a partir daí  faremos algumas análises gerais sobre algumas colunas específicas. 
 </div>
 
@@ -73,7 +73,7 @@
 
 ### Pré-processamento de dados
 
-<div align='justify'>O primeiro passo é identificar quais aspectos são relevantes para classificar o registro do medicamento. Nesse caso específico, a <b>classe terapêutica</b> e <b>principio ativo</b> são suficientes para determinar o tipo de registro do medicamento. Com base nisso, faremos uma alteração na base de dados principal, contando apenas com as colunas citadas anteriormente. Essa etapa é chamada de pré-processamento de dados, onde será feito vários processos (retirada/imputação de valores, criação de colunas através dos próprios dados, dentre outros) antes de enviar os dados a aplicar no algoritmo de machine learning.<br/>Nesse caso dos registros dos medicamentos, optou-se em remover todos as linhas da base de dados se a coluna 'categoria regulatória' estivesse com o campo vazio. Essa retirada diminuiu o tamanho da base de dados em 7%, um limite que julgo ser aceitável, já que a base de dados possui mais de 30.000 linhas. Após isso, as colunas 'classe terapêutica' e 'princípio ativo', que tinham as linhas das respectivas colunas com os valores vazios, foram preenchidas com o valor 'DESCONHECIDO'. O motivo deste valor foi que, com a maior variedade de classes terapêuticas e principios ativos, ficaria mais interessante para o próprio algoritmo tentar classificar um novo registro do medicamento na ANVISA. Após o pré-processamento iremos ver a quantidade de registros para o tipo de medicamento específico</div>
+<div align='justify'>O primeiro passo é identificar quais aspectos são relevantes para classificar o registro do medicamento. Nesse caso específico, a <b>classe terapêutica</b> e <b>principio ativo</b> são suficientes para determinar o tipo de registro do medicamento. Com base nisso, faremos uma alteração na base de dados principal, contando apenas com as colunas citadas anteriormente. Essa etapa é chamada de pré-processamento de dados, onde será feito vários processos (retirada/imputação de valores, criação de colunas através dos próprios dados, dentre outros) antes de enviar os dados a aplicar no algoritmo de machine learning.<br/>Nesse caso dos registros dos medicamentos, optou-se em remover todos as linhas da base de dados se a coluna 'categoria regulatória' estivesse com o campo vazio. Essa retirada diminuiu o tamanho da base de dados em 7%, um limite que julgo ser aceitável, já que a base de dados possui mais de 30.000 linhas. Após isso, as colunas 'classe terapêutica' e 'princípio ativo', que tinham as linhas das respectivas colunas com os valores vazios, foram preenchidas com o valor 'DESCONHECIDO'. O motivo deste valor foi que, com a maior variedade de classes terapêuticas e principios ativos, ficaria mais interessante para o próprio algoritmo tentar classificar um novo registro do medicamento na ANVISA. Após o pré-processamento iremos ver a quantidade de registros para o tipo de medicamento específico:</div><br/>
 <div align='center'><img src='categoria_regulatoria_pos_processamento.png'/></div>
 <div align='center'>Fonte: Arquivo pessoal (2023)</div><br/>
 <div align='justify'>Podemos ver que, como dito anteriormente, e remoção de registros não afetou a quantidade total de registros que poderiam ser utilizados para aprendizado de máquina, entretanto percebemos um certo desbalanceamento de cada classe das categorias, algo que pode influenciar na precisão do algoritmo. Existem técnicas para tentar balancear essas classes ou utilizar um algoritmo que tenha uma melhor performance com essas situação dos dados desbalanceados.</div>
@@ -94,7 +94,7 @@
 
 ### Avaliação dos modelos de machine learning
 
-<div align='justify'>Após a criação dos modelos, seja dividindo os dados para treinamento e teste ou fazendo uma validação cruzada, são necessárias métricas para avaliar o quão bom um modelo de classificação está, antes de disponibilizá-lo para o público. Nesse tópico será uma discussão um pouco mais técnica, então para quem não entende esse assunto, pode ler o próximo tópico.<br/>Continuando, abaixo veremos algumas métricas de avaliação de modelo:</div>
+<div align='justify'>Após a criação dos modelos, seja dividindo os dados para treinamento e teste ou fazendo uma validação cruzada, são necessárias métricas para avaliar o quão bom um modelo de classificação está, antes de disponibilizá-lo para o público. Nesse tópico será uma discussão um pouco mais técnica, então para quem não entende esse assunto, pode ler o próximo <a href=''>tópico</a>.<br/>Continuando, abaixo veremos algumas métricas de avaliação de modelo de machine learning:</div>
 
 #### Acurácia
 
@@ -108,7 +108,7 @@
 |SVM|54|
 |Random Forest|**60**|
 
-<div align="justify"><br/>Nesse quesito, os modelos baseados em árvores (decision tree e random forest) foram os que tiveram maiores acurácias em relação aos outros modelos. Porém, não pode ser o único parâmetro a ser avaliado para decidir qual modelo será utilizado para produção, vendo os demais critérios a seguir.</div><br/>
+<div align="justify"><br/>No quesito <b>acurácia</b>, os modelos baseados em árvores (decision tree e random forest) foram os que tiveram maiores acurácias em relação aos outros modelos. Porém, não pode ser o único parâmetro a ser avaliado para decidir qual modelo será utilizado para produção, vendo os demais critérios a seguir.</div><br/>
 
 #### Matriz de confusão
 
@@ -134,7 +134,7 @@
 |Radiofármaco|0|0,54|0,43|0|**0,60**|
 |Produto de T|0|0|0|0|0|
 
-<div align='justify'><br/>No critério precisão, os modelos baseado em árvore se sairam melhores comparado a outros.</div>
+<div align='justify'><br/>No critério <b>precisão</b>, os modelos baseado em árvore se sairam melhores comparado a outros.</div>
 
 #### Recall
 
@@ -152,7 +152,7 @@
 |Radiofármaco|0|**0,70**|0,30|0|0,60|
 |Produto de T|0|0|0|0|0|
 
-<div align='justify'><br/>Utilizando essa métrica, percebe-se que o random forest saiu ligeiramente melhor do que a decision tree</div>
+<div align='justify'><br/>Utilizando essa métrica, percebe-se que o <b>random forest</b> saiu ligeiramente melhor do que a <b>decision tree</b>.</div>
 
 #### F1-Score
 
